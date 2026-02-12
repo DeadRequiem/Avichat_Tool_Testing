@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 220px;
+            padding: 16px;
+            font-family: Arial, sans-serif;
+            background: #1a1a2e;
+            color: white;
+            margin: 0;
+        }
+        h2 {
+            margin: 0 0 14px;
+            font-size: 15px;
+            text-align: center;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        label { font-size: 13px; color: #aaa; }
+        input[type="range"] {
+            width: 100%;
+            accent-color: #6c47ff;
+            margin: 8px 0;
+        }
+        #brightness-value {
+            text-align: center;
+            font-size: 13px;
+            color: #aaa;
+        }
+        .toggle {
+            position: relative;
+            width: 40px;
+            height: 22px;
+        }
+        .toggle input { opacity: 0; width: 0; height: 0; }
+        .toggle-slider {
+            position: absolute;
+            inset: 0;
+            background: #444;
+            border-radius: 22px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .toggle-slider:before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            left: 3px;
+            top: 3px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+        .toggle input:checked + .toggle-slider { background: #6c47ff; }
+        .toggle input:checked + .toggle-slider:before { transform: translateX(18px); }
+    </style>
+</head>
+<body>
+    <h2>☀️ Brightness Control</h2>
+    <div class="row">
+        <label>Enabled</label>
+        <label class="toggle">
+            <input type="checkbox" id="toggle" checked>
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+    <label>Brightness</label>
+            <input type="range" id="slider" min="0" max="100" value="100">
+    <div id="brightness-value">100%</div>
+    <script src="popup.js"></script>
+</body>
+</html>

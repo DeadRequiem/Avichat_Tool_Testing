@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "Avichat Brightness Control",
+    "version": "1.0",
+    "description": "Brightness control for Avichat on GaiaOnline",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "avichat-brightness@gaiaonline"
+        }
+    },
+    "permissions": ["storage", "scripting", "tabs"],
+    "host_permissions": ["https://www.gaiaonline.com/*"],
+    "content_scripts": [
+        {
+            "matches": ["https://www.gaiaonline.com/avichat/*"],
+            "js": ["content.js"],
+            "run_at": "document_idle"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["inject.js"],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Brightness Control"
+    }
+}
