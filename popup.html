@@ -32,6 +32,7 @@
             text-align: center;
             font-size: 13px;
             color: #aaa;
+            margin-bottom: 12px;
         }
         .toggle {
             position: relative;
@@ -60,10 +61,16 @@
         }
         .toggle input:checked + .toggle-slider { background: #6c47ff; }
         .toggle input:checked + .toggle-slider:before { transform: translateX(18px); }
+        input[type="checkbox"] {
+            accent-color: #6c47ff;
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <h2>☀️ Brightness Control</h2>
+    <h2>☀ Brightness Control</h2>
     <div class="row">
         <label>Enabled</label>
         <label class="toggle">
@@ -72,8 +79,12 @@
         </label>
     </div>
     <label>Brightness</label>
-            <input type="range" id="slider" min="0" max="100" value="100">
+    <input type="range" id="slider" min="0" max="100" value="100">
     <div id="brightness-value">100%</div>
+    <div class="row">
+        <label>Auto-enable on load</label>
+        <input type="checkbox" id="auto-enable" checked>
+    </div>
     <script src="popup.js"></script>
 </body>
 </html>
